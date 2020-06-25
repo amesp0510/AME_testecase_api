@@ -1,3 +1,9 @@
+#################################################
+# Test POST for AME test case
+# Vinicius Miranda de PInho Junho 2020
+#
+##################################################
+
 *** Settings ***
 
 Documentation    Suite description
@@ -7,6 +13,7 @@ Variables   ./Data_test/locators.py
 
 
 *** Variables ***
+# Os valores sao obtidos do arquivo locators.py e pode ser alterado e adicionado mais caminhos facilmente
 ${base_url}      http://dummy.restapiexample.com//api/v1
 ${name_post}    ${txt_nome_user}
 ${salary_post}   ${txt_salary}
