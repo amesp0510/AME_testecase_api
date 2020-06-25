@@ -14,7 +14,7 @@ Variables   ./Data_test/locators.py
 
 *** Variables ***
 # Os valores sao obtidos do arquivo locators.py e pode ser alterado e adicionado mais caminhos facilmente
-${base_url}      http://dummy.restapiexample.com//api/v1
+${base_url}     ${txt_url_test}
 ${name_post}    ${txt_nome_user}
 ${salary_post}   ${txt_salary}
 ${age_post}        ${txt_age}
