@@ -22,4 +22,10 @@ Voces pediram POM se nao me engano, eu fiz um simples em Python para nao perder 
 
 Esse site do DUMMY nao responde corretamente para o post, nunca retorna 201 e nao deixa me deixa cadastrar.
 
-Dessa forma precisa vou pesquisar um valido na lista e exlcuir esse valido e depois caso voce queira testar precisa escolhar um que esteja na lista.
+Desisti de fazer o GET o site tem varios problemas eu fiz testes com outras API e tudo funciona, apenas esse site DUMMY esta 
+sempre retornando erro 409, e se eu contorno esse ele retorna 400. desisti....
+
+
+Eu tenho outros sites que cadastra certinho e retorna, desculpe nao sei se tem alguma etapa que eu deveria verificar.
+
+
