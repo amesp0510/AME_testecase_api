@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.1 (Python 3.8.2 on win32)" generated="20200625 00:50:59.946" rpa="false">
+<robot generator="Robot 3.2.1 (Python 3.8.2 on win32)" generated="20200625 11:26:29.686" rpa="false">
 <suite id="s1" name="Teste Post" source="C:\Users\elsys\Documents\pycharm_robot\AME_testecase_api\Testcase_Post_API\teste_post.robot">
 <test id="s1-t1" name="put_customer_resgistration">
 <kw name="Create Session" library="RequestsLibrary">
@@ -8,32 +8,33 @@
 <arg>mysession</arg>
 <arg>${base_url}</arg>
 </arguments>
-<msg timestamp="20200625 00:51:00.114" level="INFO">Creating Session using : alias=mysession, url=http://dummy.restapiexample.com//api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20200625 00:51:00.114" endtime="20200625 00:51:00.114"></status>
+<msg timestamp="20200625 11:26:29.911" level="INFO">Creating Session using : alias=mysession, url=http://dummy.restapiexample.com//api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200625 11:26:29.910" endtime="20200625 11:26:29.911"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
-<arg>FirstName=vini2</arg>
-<arg>LastName=pinho2</arg>
-<arg>UserName=testeuser2</arg>
+<arg>name=${name_post}</arg>
+<arg>salary=${salary_post}</arg>
+<arg>age=${age_post}</arg>
 </arguments>
 <assign>
 <var>${body}</var>
 </assign>
-<msg timestamp="20200625 00:51:00.115" level="INFO">${body} = {'FirstName': 'vini2', 'LastName': 'pinho2', 'UserName': 'testeuser2'}</msg>
-<status status="PASS" starttime="20200625 00:51:00.115" endtime="20200625 00:51:00.115"></status>
+<msg timestamp="20200625 11:26:29.913" level="INFO">${body} = {'name': 'Vinicius Miranda de Pinho', 'salary': 100000, 'age': 42}</msg>
+<status status="PASS" starttime="20200625 11:26:29.912" endtime="20200625 11:26:29.913"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
 <arg>Content-Type=application/json</arg>
+<arg>User-Agent=Firefox</arg>
 </arguments>
 <assign>
 <var>${header}</var>
 </assign>
-<msg timestamp="20200625 00:51:00.116" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20200625 00:51:00.116" endtime="20200625 00:51:00.116"></status>
+<msg timestamp="20200625 11:26:29.914" level="INFO">${header} = {'Content-Type': 'application/json', 'User-Agent': 'Firefox'}</msg>
+<status status="PASS" starttime="20200625 11:26:29.913" endtime="20200625 11:26:29.914"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the
@@ -47,42 +48,87 @@ given `alias`</doc>
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20200625 00:51:00.117" level="INFO">POST Request using : uri=/create, params=None, files=None, allow_redirects=True, timeout=None
-headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
-data={"FirstName": "vini2", "LastName": "pinho2", "UserName": "testeuser2"} 
+<msg timestamp="20200625 11:26:29.915" level="INFO">POST Request using : uri=/create, params=None, files=None, allow_redirects=True, timeout=None
+headers={'User-Agent': 'Firefox', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+data={"name": "Vinicius Miranda de Pinho", "salary": 100000, "age": 42} 
 json=None</msg>
-<msg timestamp="20200625 00:51:00.760" level="INFO">${response} = &lt;Response [406]&gt;</msg>
-<status status="PASS" starttime="20200625 00:51:00.117" endtime="20200625 00:51:00.760"></status>
+<msg timestamp="20200625 11:26:30.744" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200625 11:26:29.914" endtime="20200625 11:26:30.744"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>${response.status_code}</arg>
 </arguments>
-<status status="PASS" starttime="20200625 00:51:00.760" endtime="20200625 00:51:00.761"></status>
+<status status="PASS" starttime="20200625 11:26:30.745" endtime="20200625 11:26:30.747"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>${response.json()}</arg>
 </arguments>
-<msg timestamp="20200625 00:51:00.761" level="FAIL">Resolving variable '${response.json()}' failed: JSONDecodeError: Expecting value: line 1 column 1 (char 0)</msg>
-<status status="FAIL" starttime="20200625 00:51:00.761" endtime="20200625 00:51:00.761"></status>
+<status status="PASS" starttime="20200625 11:26:30.747" endtime="20200625 11:26:30.748"></status>
 </kw>
-<status status="FAIL" starttime="20200625 00:51:00.114" endtime="20200625 00:51:00.762" critical="yes">Resolving variable '${response.json()}' failed: JSONDecodeError: Expecting value: line 1 column 1 (char 0)</status>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${res_body}</var>
+</assign>
+<msg timestamp="20200625 11:26:30.750" level="INFO">${res_body} = {"status":"success","data":{"name":"Vinicius Miranda de Pinho","salary":100000,"age":42,"id":79}}</msg>
+<status status="PASS" starttime="20200625 11:26:30.749" endtime="20200625 11:26:30.750"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${res_body}</arg>
+<arg>success</arg>
+</arguments>
+<status status="PASS" starttime="20200625 11:26:30.751" endtime="20200625 11:26:30.751"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<msg timestamp="20200625 11:26:30.753" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20200625 11:26:30.752" endtime="20200625 11:26:30.753"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200625 11:26:30.754" endtime="20200625 11:26:30.754"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${res_body}</arg>
+<arg>Vinicius Miranda de Pinho</arg>
+</arguments>
+<status status="PASS" starttime="20200625 11:26:30.755" endtime="20200625 11:26:30.755"></status>
+</kw>
+<status status="PASS" starttime="20200625 11:26:29.909" endtime="20200625 11:26:30.757" critical="yes"></status>
 </test>
 <doc>Suite description</doc>
-<status status="FAIL" starttime="20200625 00:50:59.948" endtime="20200625 00:51:00.763"></status>
+<status status="PASS" starttime="20200625 11:26:29.688" endtime="20200625 11:26:30.759"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1">Critical Tests</stat>
-<stat pass="0" fail="1">All Tests</stat>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" id="s1" name="Teste Post">Teste Post</stat>
+<stat pass="1" fail="0" id="s1" name="Teste Post">Teste Post</stat>
 </suite>
 </statistics>
 <errors>
