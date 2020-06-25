@@ -1,6 +1,6 @@
 #################################################################################################
 # Page with elements
-#
+# Locators para POST
 #
 # POM - Este e um POM bem simple apenas para demonstar, e possivel fazer um POM mais sofisticado
 #################################################################################################

@@ -35,7 +35,7 @@ put_customer_resgistration
     should contain      ${res_body}     success
 
     ${status_code}      convert to string   ${response.status_code}
-    should be equal     ${status_code}      200
+    should be equal     ${status_code}      200  # nunca retorna 201
     should contain      ${res_body}        Vinicius Miranda de Pinho
 
 
